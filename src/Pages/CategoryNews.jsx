@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useLoaderData, useParams } from 'react-router'
+import NewsCart from '../components/NewsCart';
 
 const CategoryNews = () => {
 
@@ -25,6 +26,11 @@ const CategoryNews = () => {
   return (
     <div>
       categories news - {categoryNews.length}
+      <div className='grid grid-cols-1 gap-3'>
+        {
+          categoryNews.map((news) => <NewsCart news={news}></NewsCart>)
+        }
+      </div>
     </div>
   )
 }
