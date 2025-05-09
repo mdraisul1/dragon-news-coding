@@ -8,15 +8,16 @@ const router = createBrowserRouter([
     path: "/",
     Component: HomeLayouts,
     children: [
-        {
-            path: "/",
-            Component: Home,
-        },
-        {
-            path: "/category/:id",
-            Component: CategoryNews,
-        }
-    ]
+      {
+        path: "/",
+        Component: Home,
+      },
+      {
+        path: "/category/:id",
+        Component: CategoryNews,
+        loader: () => fetch("/news.json"),
+      },
+    ],
   },
 ]);
 
