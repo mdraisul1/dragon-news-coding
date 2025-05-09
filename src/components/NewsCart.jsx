@@ -15,9 +15,9 @@ const NewsCart = ({news}) => {
   } = news;
 
   return (
-    <div className="bg-white p-5 rounded-lg shadow-md border">
+    <div className="bg-white p-5 rounded-lg shadow-md">
       {/* Author Info */}
-      <div className="flex justify-between items-center mb-4">
+      <div className="bg-base-200 p-3 flex justify-between items-center mb-4 rounded-md">
         <div className="flex items-center space-x-3">
           <img
             src={author.img}
