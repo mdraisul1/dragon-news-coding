@@ -1,5 +1,5 @@
 import { use, useContext } from 'react';
-import { Link, NavLink } from 'react-router'
+import { Link, NavLink } from 'react-router';
 import userIcon from "../assets/user.png";
 import { authContext } from '../Provider/AuthProvider';
 
