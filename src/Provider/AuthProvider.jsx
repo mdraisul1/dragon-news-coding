@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 export const authContext = createContext();
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import app from '../firebase/firebase.init';
 
 // Initialize Firebase Authentication and get a reference to the service
@@ -12,6 +12,10 @@ const AuthProvider = ({children}) => {
 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
+    }
+
+    const logOutUser = () => {
+        return signOut(auth);
     }
 
     useEffect(() => {
@@ -27,6 +31,7 @@ const AuthProvider = ({children}) => {
       user,
       setUser,
       createUser,
+      logOutUser,
     };
 
   return <authContext.Provider value={authData}>{children}</authContext.Provider>;
