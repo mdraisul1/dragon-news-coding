@@ -6,6 +6,7 @@ import AuthLayouts from "../layouts/AuthLayouts";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import NewsDetails from "../Pages/NewsDetails";
+import PrivetRouters from "../Provider/PrivetRouters";
 
 const router = createBrowserRouter([
   {
@@ -34,14 +35,19 @@ const router = createBrowserRouter([
       {
         path: "/auth/register",
         Component: Register,
-      }
+      },
     ],
   },
   {
     path: "/news-details/:id",
-    Component: NewsDetails,
-    loader: () => fetch('/news.json'),
-  }
+    // Component: NewsDetails,
+    element: (
+      <PrivetRouters>
+        <NewsDetails></NewsDetails>
+      </PrivetRouters>
+    ),
+    loader: () => fetch("/news.json"),
+  },
 ]);
 
 export default router;
