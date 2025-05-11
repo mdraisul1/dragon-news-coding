@@ -2,10 +2,12 @@ import React from 'react'
 import { FaShareAlt, FaEye } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
 import { CiBookmark } from 'react-icons/ci';
+import { Link } from 'react-router';
 
 const NewsCart = ({news}) => {
 
     const {
+    id, 
     author,
     title,
     image_url,
@@ -50,9 +52,9 @@ const NewsCart = ({news}) => {
       {/* Description */}
       <p className="text-sm text-gray-600">
         {details.slice(0, 150)}...{" "}
-        <span className="text-orange-500 font-medium cursor-pointer">
+        <Link to={`/news-details/${id}`} className="text-orange-500 font-medium cursor-pointer">
           Read More
-        </span>
+        </Link>
       </p>
 
       {/* Footer: Rating and Views */}
