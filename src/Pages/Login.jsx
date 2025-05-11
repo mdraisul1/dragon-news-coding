@@ -1,10 +1,13 @@
 import React, { use } from 'react'
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { authContext } from '../Provider/AuthProvider';
 
 const Login = () => {
 
   const {userSingIn} = use(authContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log(location);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -15,6 +18,7 @@ const Login = () => {
     userSingIn(email, password)
     .then(result => {
       const user = result.user;
+      navigate(location?.state?.from?.pathname || "/", { replace: true });
     })
     .catch(error => {
       const errorCode = error.code;

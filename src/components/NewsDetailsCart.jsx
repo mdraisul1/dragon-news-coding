@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router';
 
 const NewsDetailsCart = ({news}) => {
-    console.log(news);
+    // console.log(news);
   return (
     <div className="space-y-6">
       <img
